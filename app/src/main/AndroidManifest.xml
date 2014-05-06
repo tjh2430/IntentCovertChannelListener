@@ -1,0 +1,38 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.intentcovertchannellistener.app">
+
+
+    <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="19" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:allowBackup="false" >
+
+        <activity
+            android:name="CovertChannelReceiver"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="MessageReceiver" >
+
+            <!-- TODO: Use better, more generalized filters -->
+            <intent-filter>
+                <action android:name="receive_covert_message_action" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="calculate_throughput_action" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="calculate_bit_error_rate" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
